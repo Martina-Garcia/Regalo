@@ -36,10 +36,10 @@ st.markdown("""
 # --- FUNCIÓN DE LLUVIA DE CORAZONES ---
 def lluvia_corazones():
     rain(
-        emoji="❤️❤",
+        emoji="❤️",
         font_size=54,
         falling_speed=5,
-        animation_length="3s", # Dura 3 segundos
+        animation_length="5s",
     )
 
 # --- ENCABEZADO ---
