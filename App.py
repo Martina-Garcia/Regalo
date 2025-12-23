@@ -30,6 +30,9 @@ for index, row in df.iterrows():
         # El botón es único gracias a la 'key=index'
         # Si estado es TRUE, el botón aparece desactivado (disabled=True)
         if st.button("Canjear", key=index, disabled=bool(estado)):
+            st.balloons()
+            st.success(f"{mensaje}")
+            time.sleep(1)  # Pequeña pausa para mejorar la experiencia
             
             # 1. Actualizamos el DataFrame localmente
             df.at[index, 'Canjeado'] = True
@@ -38,8 +41,6 @@ for index, row in df.iterrows():
             conn.update(worksheet="Hoja 1", data=df)
             
             # 3. Mostramos mensaje de éxito y lluvia de corazones
-            st.balloons()
-            st.success(f"¡Disfrútalo! {mensaje}")
             
             # 4. Recargamos la página para que el botón se bloquee visualmente
             st.rerun()
