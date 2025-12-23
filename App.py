@@ -1,7 +1,18 @@
 import streamlit as st
 import time
 from streamlit_gsheets import GSheetsConnection
+from streamlit_extras.let_it_rain import rain
 import pandas as pd
+
+
+def lluvia_corazones():
+    rain(
+        emoji="❤️",
+        font_size=54,
+        falling_speed=5,
+        animation_length="4s",
+    )
+
 
 # --- CONFIGURACIÓN DE LA PÁGINA ---
 st.set_page_config(page_title="Para ti mi lobito❤️", page_icon="🎁", layout="centered")
@@ -12,6 +23,8 @@ df = conn.read(worksheet="Hoja 1", ttl=0)
 
 st.title("🎄 Regalo de Navidad par mi lobito❤️😘 🎄")
 st.write("😘 Hola amoooor, esta cuponera está hecha para que eligas lo que quieras cuando quieras 😘")
+
+
 
 for index, row in df.iterrows():
     regalo = row['Regalo']
@@ -50,11 +63,4 @@ if st.button("🔄 Actualizar lista (si algo falla)"):
     st.cache_data.clear()
     st.rerun()
 
-def lluvia_corazones():
-    rain(
-        emoji="❤️",
-        font_size=54,
-        falling_speed=5,
-        animation_length="4s",
-    )
 
