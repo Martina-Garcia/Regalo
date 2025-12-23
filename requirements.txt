@@ -1,4 +1,4 @@
 streamlit
 streamlit-extras
 streamlit-gsheets
-st-gsheets-connection
+pandas
