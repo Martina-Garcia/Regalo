@@ -22,7 +22,8 @@ for index, row in df.iterrows():
     col1, col2 = st.columns([3, 1])
     
     with col1:
-        st.subheader(f"🎁 {regalo}")
+        st.subheader(f"{regalo}")
+        st.caption(f"{mensaje}")
         if estado:
             st.caption("❌ ESTE CUPÓN YA FUE CANJEADO")
     
@@ -30,8 +31,7 @@ for index, row in df.iterrows():
         # El botón es único gracias a la 'key=index'
         # Si estado es TRUE, el botón aparece desactivado (disabled=True)
         if st.button("Canjear", key=index, disabled=bool(estado)):
-            st.balloons()
-            st.success(f"{mensaje}")
+            lluvia_corazones()
             time.sleep(1)  # Pequeña pausa para mejorar la experiencia
             
             # 1. Actualizamos el DataFrame localmente
@@ -50,44 +50,11 @@ if st.button("🔄 Actualizar lista (si algo falla)"):
     st.cache_data.clear()
     st.rerun()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-# --- FUNCIÓN DE LLUVIA DE CORAZONES ---
 def lluvia_corazones():
     rain(
         emoji="❤️",
         font_size=54,
         falling_speed=5,
-        animation_length="5s",
+        animation_length="4s",
     )
 
-# --- GENERAR LOS BOTONES ---
-for titulo, mensaje in cupones.items():
-    if st.button(titulo):
-        st.session_state.cupon_abierto = mensaje
-        lluvia_corazones() # ¡Activa la animación!
-
-# --- MOSTRAR EL RESULTADO ---
-if st.session_state.cupon_abierto:
-    st.markdown("---")
-    st.success(f"### 🎉 {st.session_state.cupon_abierto}")
-    if st.button("Cerrar Cupón"):
-        st.session_state.cupon_abierto = None
-        st.rerun()
-
-# --- PIE DE PÁGINA ---
-st.markdown("---")
-st.markdown("<p class='big-font'>Hecho con ❤️ por tu lobita 🐺🩷", unsafe_allow_html=True)
-"""
