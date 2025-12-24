@@ -15,13 +15,13 @@ def lluvia_corazones():
 
 
 # --- CONFIGURACIÓN DE LA PÁGINA ---
-st.set_page_config(page_title="Para ti mi lobito❤️", page_icon="🎁", layout="centered")
+st.set_page_config(page_title="Para mi maxi❤️", page_icon="🎁", layout="centered")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read(worksheet="Hoja 1", ttl=0)
 
-st.title("🎄 Regalo de Navidad para mi maxi❤️🐺😘 🎄")
+st.title("🎄 Regalo de Navidad para mi lobito❤️🐺😘 🎄")
 st.write("😘 Hola amoooor, esta cuponera está hecha para que eligas lo que quieras cuando tú quieras , Te amooooo❤️😘")
 
 
