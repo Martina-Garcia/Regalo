@@ -21,8 +21,8 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 df = conn.read(worksheet="Hoja 1", ttl=0)
 
-st.title("🎄 Regalo de Navidad par mi lobito❤️😘 🎄")
-st.write("😘 Hola amoooor, esta cuponera está hecha para que eligas lo que quieras cuando quieras 😘")
+st.title("🎄 Regalo de Navidad para mi maxi❤️🐺😘 🎄")
+st.write("😘 Hola amoooor, esta cuponera está hecha para que eligas lo que quieras cuando tú quieras , Te amooooo❤️😘")
 
 
 
@@ -59,7 +59,7 @@ for index, row in df.iterrows():
             st.rerun()
 
 st.markdown("---")
-if st.button("🔄 Actualizar lista (si algo falla)"):
+if st.button("🔄 Actualizar lista (por si algo falla)"):
     st.cache_data.clear()
     st.rerun()
 
